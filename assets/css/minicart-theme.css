@@ -1,0 +1,236 @@
+#PPSmartCart {
+    z-index: 4000;
+}
+
+#buy-now-window h6 {
+    font-size: 1.5rem;
+}
+
+#PPSmartCart .minicart-subtotal {
+    right: 10px;
+    left: auto !important;
+}
+
+#PPSmartCart .btn-close {
+    z-index: 10;
+}
+
+#smart-cart {
+    position: fixed;
+    z-index: 1040;
+    display: flex;
+    font-size: 50px;
+    padding: 12px;
+    color: black;
+    border-radius: 50%;
+    background-color: rgba(250, 250, 250, 0.95);
+}
+
+#smart-cart svg {
+    padding: 6px;
+}
+
+#smart-cart span#smart-cart-qty {
+    font-style: normal;
+    position: absolute;
+    top: 2px;
+    right: -5px;
+    padding: 3px 7px;
+    white-space: nowrap;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #05a;
+}
+
+#smart-cart span#smart-cart-qty:empty {
+    display: none;
+}
+
+#giftcard-to-smartcart {
+    border-radius: 50%;
+    padding: 3px;
+    position: fixed;
+    z-index: 10000;
+}
+
+#smart-cart {
+    cursor: pointer;
+}
+
+/*  */
+#exampleModal {
+    padding: 0 !important;
+    height: 100%;
+}
+
+#exampleModal .item-cur {
+    padding-right: 0.5rem;
+}
+
+#exampleModal .variants>*:not(:nth-last-child(1)) {
+    margin-bottom: 1rem;
+}
+
+#exampleModal .old-price {
+    text-decoration: line-through;
+    color: #8d8d8d;
+}
+
+#exampleModal .modal-content {
+    height: auto;
+}
+
+#exampleModal .modal-dialog {
+    height: auto;
+}
+
+@media (max-width: 991px) {
+    #exampleModal .modal-body {
+        padding: 1rem;
+    }
+
+    #exampleModal .modal-dialog {
+        max-width: 100%;
+    }
+}
+
+@media (max-width:767px) {
+    #exampleModal .btn {
+        width: 100%;
+    }
+}
+
+@media (min-width:992px) {
+    #exampleModal .modal-body {
+        padding: 2rem;
+    }
+
+    #exampleModal .modal-dialog {
+        max-width: 800px;
+    }
+}
+
+#exampleModal .close {
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 42px;
+    font-weight: 400;
+    line-height: 1;
+    z-index: 1;
+    outline: none;
+    opacity: 0.3;
+    transition: 0.2s;
+}
+
+#exampleModal .close:hover {
+    opacity: 0.7;
+}
+
+#buy-now-window, #approve-window {
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#buy-now-window .modal-content,
+#approve-window .modal-content {
+    border-radius: 24px;
+    background: #fff;
+    padding: 16px 16px 11px;
+    max-height: 580px;
+    margin: 12px;
+    overflow: auto;
+}
+
+#buy-now-window .btn-close {
+    box-shadow: none !important;
+}
+
+#buy-now-window .smartcart-plus, #buy-now-window .smartcart-minus {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    border: 1px solid #ccc;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+    user-select: none;
+}
+
+#buy-now-window .smartcart-plus {
+    margin-left: -1px;
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+#buy-now-window .smartcart-minus {
+    margin-right: -1px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+#buy-now-window .smartcart-quantity {
+    z-index: 1;
+    width: 35px;
+    height: 35px;
+    padding: 2px 4px;
+    border: 1px solid #ccc;
+    font-size: 1.25rem;
+    text-align: right;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+    -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+}
+
+#buy-now-window .minicart-details-quantity {
+    display: flex;
+}
+
+@media(max-width:767px) {
+    #buy-now-window {
+        max-width: 800px!important;
+        margin:0!important;
+    }
+
+    #buy-now-window .modal-content {
+        border-radius: 0px;
+        background: #fff;
+        padding: 0;
+        max-height: 100%;
+        margin: 0px;
+        overflow: auto;
+        width: 100% !important;
+        height: 100% !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+@media(min-width:768px) {
+    #buy-now-window {
+        min-width: 590px!important;
+    }
+}
+
+#buy-now-window input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+#buy-now-window input::-webkit-outer-spin-button,
+#buy-now-window input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
