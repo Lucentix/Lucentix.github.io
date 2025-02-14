@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -13,6 +14,33 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
+  const [githubStats, setGithubStats] = useState({
+    repos: 0,
+    stars: 0,
+    followers: 0,
+  });
+
+  useEffect(() => {
+    async function fetchGitHubStats() {
+      const userRes = await fetch("https://api.github.com/users/Lucentix");
+      const userData = await userRes.json();
+
+      const reposRes = await fetch("https://api.github.com/users/Lucentix/repos");
+      const reposData = await reposRes.json();
+
+      setGithubStats({
+        repos: reposData.length, // Set the number of repositories
+        stars: reposData.reduce(
+          (acc, repo) => acc + repo.stargazers_count,
+          0
+        ),
+        followers: userData.followers,
+      });
+    }
+
+    fetchGitHubStats();
+  }, []);
+
   return (
     <div className="min-h-screen bg-black text-white">
       <header className="fixed top-0 z-50 w-full border-b border-white/10 bg-black/50 backdrop-blur-xl">
@@ -195,60 +223,70 @@ export default function Home() {
               <p className="text-gray-400">
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                sed diam voluptua. At vero eos et accusam et justo duo dolores
-                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-                est Lorem ipsum dolor sit amet.
+                aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+                duo dolores et ea rebum.
               </p>
             </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:border-violet-400/50"
-            >
-              <LineChart className="mb-4 h-12 w-12 text-violet-400" />
-              <h3 className="mb-2 text-xl font-bold">Lorem Ipsum</h3>
-              <p className="text-gray-400">
-                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                sed diam voluptua. At vero eos et accusam et justo duo dolores
-                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-                est Lorem ipsum dolor sit amet.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5 }}
               viewport={{ once: true }}
               className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:border-cyan-400/50"
             >
-              <Lock className="mb-4 h-12 w-12 text-cyan-400" />
-              <h3 className="mb-2 text-xl font-bold">Lorem Ipsum</h3>
+              <CheckCircle2 className="mb-4 h-12 w-12 text-cyan-400" />
+              <h3 className="mb-2 text-xl font-bold">Features</h3>
               <p className="text-gray-400">
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
                 diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                aliquyam erat, sed diam voluptua. At vero eos et accusam et
-                justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea
-                takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum
-                dolor sit amet, consetetur sadipscing elitr, sed diam nonumy
-                eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-                sed diam voluptua. At vero eos et accusam et justo duo dolores
-                et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus
-                est Lorem ipsum dolor sit amet.
+                aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+                duo dolores et ea rebum.
               </p>
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:border-cyan-400/50"
+            >
+              <LineChart className="mb-4 h-12 w-12 text-cyan-400" />
+              <h3 className="mb-2 text-xl font-bold">Analytics</h3>
+              <p className="text-gray-400">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                aliquyam erat, sed diam voluptua. At vero eos et accusam et justo
+                duo dolores et ea rebum.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      <section id="github-stats" className="relative z-10 border-t border-white/10 bg-black py-24">
+        <div className="container px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
+              GitHub Stats
+            </h2>
+            <p className="mt-4 text-gray-400">Real-time GitHub statistics</p>
+          </div>
+
+          <div className="mt-12 grid grid-cols-3 gap-8 text-center">
+            <div className="stat-card">
+              <h3 className="text-2xl font-bold">{githubStats.repos}</h3>
+              <p>Repositories</p>
+            </div>
+            <div className="stat-card">
+              <h3 className="text-2xl font-bold">{githubStats.stars}</h3>
+              <p>Stars</p>
+            </div>
+            <div className="stat-card">
+              <h3 className="text-2xl font-bold">{githubStats.followers}</h3>
+              <p>Followers</p>
+            </div>
           </div>
         </div>
       </section>
@@ -293,7 +331,7 @@ export default function Home() {
             <span className="font-bold">Lucentix</span>
           </div>
           <p className="text-sm text-gray-400">
-            © {new Date().getFullYear()} Made by CuzImStupi4 with ❤️
+            © {new Date().getFullYear()} Made by CuzImStupi4 & Lucentix with ❤️
           </p>
           <div className="flex space-x-6"></div>
         </div>
