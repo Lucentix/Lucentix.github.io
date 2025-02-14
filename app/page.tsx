@@ -7,7 +7,6 @@ import {
   CheckCircle2,
   CreditCard,
   LineChart,
-  Lock,
   Wallet,
 } from "lucide-react";
 import Link from "next/link";
@@ -209,7 +208,7 @@ export default function Home() {
       <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
         Why Choose Us?
       </h2>
-      <p className="mt-4 text-gray-400">Here’s why you should join and contribute to our open-source movement</p>
+      <p className="mt-4 text-gray-400">Here&apos;s why you should join and contribute to our open-source movement</p>
     </div>
     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
       <motion.div
@@ -222,8 +221,8 @@ export default function Home() {
         <CreditCard className="mb-4 h-12 w-12 text-cyan-400" />
         <h3 className="mb-2 text-xl font-bold">Completely Free for Everyone</h3>
         <p className="text-gray-400">
-          We believe in making technology accessible to all. That's why our projects are completely free to use, with no hidden fees or restrictions. 
-          Whether you're a beginner or an expert, our open-source tools and resources are available to everyone at no cost. 
+          We believe in making technology accessible to all. That&apos;s why our projects are completely free to use, with no hidden fees or restrictions. 
+          Whether you&apos;re a beginner or an expert, our open-source tools and resources are available to everyone at no cost. 
           Join us and enjoy the freedom of using and contributing to high-quality software without worrying about licensing or costs.
         </p>
       </motion.div>
@@ -240,7 +239,7 @@ export default function Home() {
         <p className="text-gray-400">
           Transparency is key to building trust in software. As an open-source GitHub organization, all of our projects are available for inspection, 
           modification, and collaboration. This allows developers around the world to contribute to the codebase, fix bugs, add features, and improve the tools we all use. 
-          Whether you're interested in learning, contributing, or simply using the projects, you'll always have full access to the code and our development process.
+          Whether you&apos;re interested in learning, contributing, or simply using the projects, you&apos;ll always have full access to the code and our development process.
         </p>
       </motion.div>
 
@@ -254,14 +253,15 @@ export default function Home() {
         <LineChart className="mb-4 h-12 w-12 text-cyan-400" />
         <h3 className="mb-2 text-xl font-bold">Collaborative and Community-Driven</h3>
         <p className="text-gray-400">
-          At the core of our organization is a strong, passionate community. By being part of our open-source movement, you’re not just using software, 
-          you’re joining a group of like-minded individuals who are committed to collaboration and shared growth. We encourage contributions from everyone, 
+          At the core of our organization is a strong, passionate community. By being part of our open-source movement, you&apos;re not just using software, 
+          you&apos;re joining a group of like-minded individuals who are committed to collaboration and shared growth. We encourage contributions from everyone, 
           no matter your skill level. Your ideas, feedback, and code can shape the future of our projects. Together, we can create something incredible.
         </p>
       </motion.div>
     </div>
   </div>
 </section>
+
 
 
       <section id="github-stats" className="relative z-10 border-t border-white/10 bg-black py-24">
