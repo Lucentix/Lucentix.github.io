@@ -31,8 +31,8 @@ export default function Home() {
       setGithubStats({
         repos: reposData.length, // Set the number of repositories
         stars: reposData.reduce(
-          (acc, repo) => acc + repo.stargazers_count,
-          0
+          (acc: number, { stargazers_count }: { stargazers_count: number }) => acc + stargazers_count,
+          0 // Initial value for acc
         ),
         followers: userData.followers,
       });
@@ -40,6 +40,7 @@ export default function Home() {
 
     fetchGitHubStats();
   }, []);
+
 
   return (
     <div className="min-h-screen bg-black text-white">
