@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Users } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image"; // <-- Hier importiert
 import { Button } from "@/components/ui/button";
 
 export default function Team() {
@@ -77,11 +78,15 @@ export default function Team() {
                 viewport={{ once: true }}
                 className="group rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm transition-colors hover:border-cyan-400/50"
               >
-                <img
-                  src={member.img}
-                  alt={member.name}
-                  className="mb-4 h-32 w-32 rounded-full object-cover"
-                />
+                <div className="relative mb-4 h-32 w-32 mx-auto rounded-full overflow-hidden">
+                  <Image
+                    src={member.img}
+                    alt={`Profile picture of ${member.name}`}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </div>
                 <h3 className="mb-2 text-xl font-bold">{member.name}</h3>
                 <p className="text-gray-400">{member.role}</p>
                 <div className="mt-4 text-center">
