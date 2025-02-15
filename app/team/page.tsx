@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, User, Users } from "lucide-react";
-import Link from "next/link";  // Link importieren
+import { ArrowRight, Users } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function Team() {
-  const [teamMembers, setTeamMembers] = useState([
+  const [teamMembers] = useState([
     { name: "Lucentix", role: "Founder - Main Developer", img: "https://cdn.discordapp.com/avatars/1059077615580880967/a09beb7666b4270667ef76ef7536464f?size=1024", connectLink: "https://discord.com/users/1059077615580880967" }, 
     { name: "cuzimstupi4", role: "Core Team - 2nd Main Developer", img: "https://cdn.discordapp.com/avatars/517764829927440396/7c426a372ed836f25544ea96459bd780?size=1024", connectLink: "https://discord.com/users/517764829927440396" },
   ]);
