@@ -31,9 +31,9 @@ export default function Home() {
             await axios.get(service.url, { timeout: 5000 }); // 5 Sekunden Timeout
             const responseTime = (performance.now() - start).toFixed(2);
             return { ...service, status: "Online", responseTime: `${responseTime}ms` };
-          } catch (error) {
+          } catch {
             return { ...service, status: "Offline", responseTime: "N/A" };
-          }
+          }          
         })
       );
       setStatuses(results);
