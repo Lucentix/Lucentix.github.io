@@ -28,10 +28,10 @@ export default function Home() {
       const reposData = await reposRes.json();
 
       setGithubStats({
-        repos: reposData.length, // Set the number of repositories
+        repos: reposData.length,
         stars: reposData.reduce(
           (acc: number, { stargazers_count }: { stargazers_count: number }) => acc + stargazers_count,
-          0 // Initial value for acc
+          0
         ),
         followers: userData.followers,
       });
@@ -185,7 +185,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center space-x-4">
               <a
-                href="https://discord.gg/qPHhXmVUm2"
+                href="/discord"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -310,7 +310,7 @@ export default function Home() {
           <span>Free and accessible to all</span>
         </li>
       </ul>
-      <a href="https://discord.gg/qPHhXmVUm2" target="_blank" rel="noopener noreferrer">
+      <a href="/discord" target="_blank" rel="noopener noreferrer">
       <Button className="bg-gradient-to-r from-cyan-400 to-violet-500 text-lg text-black hover:from-cyan-500 hover:to-violet-600 mt-8">
       Connect with us
           <ArrowRight className="ml-2 h-5 w-5" />
