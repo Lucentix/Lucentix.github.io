@@ -25,7 +25,7 @@ export default function Changelog() {
 
         if (!Array.isArray(repos)) return;
 
-        const allChangelog: ChangelogEntry[] = []; // Changed to const
+        const allChangelog: ChangelogEntry[] = [];
 
         for (const repo of repos) {
           const releasesRes = await fetch(`https://api.github.com/repos/Lucentix/${repo.name}/releases`);
