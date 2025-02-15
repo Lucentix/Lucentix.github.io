@@ -9,6 +9,7 @@ const services = [
   { name: "GitHub API", url: "https://api.github.com" },
   { name: "Discord API", url: "https://discordstatus.com/api/v2/status.json" },
   { name: "FiveM", url: "https://servers-frontend.fivem.net/api/servers/stream" },
+  { name: "Lucentix Server", url: "https://x-service.site/" },
 ];
 
 interface ServiceStatus {
@@ -51,7 +52,7 @@ export default function Home() {
         </div>
       </header>
 
-      <section className="relative flex min-h-screen items-center justify-center pt-1">
+      <section className="relative flex min-h-screen items-center justify-center pt-6">
         <div className="absolute inset-0 overflow-hidden">
           <motion.path
             initial={{ pathLength: 0, opacity: 0 }}
@@ -91,19 +92,19 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="mx-auto max-w-3xl space-y-8"
+            className="mx-auto max-w-3xl space-y-4"
           >
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl text-white">
               Service Status
             </h1>
-            <p className="mx-auto max-w-2xl text-muted text-gray-400 sm:text-xl">
+            <p className="mx-auto max-w-2xl text-muted text-gray-400 sm:text-lg mt-3">
               Check the status of your favorite services in real-time.
             </p>
           </motion.div>
         </div>
       </section>
 
-      <section className="relative z-10 border-t border-white/20 bg-black py-24">
+      <section className="relative z-10 border-t border-white/20 bg-black py-16">
         <div className="container px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {statuses.map((service, index) => (
@@ -112,9 +113,9 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="group rounded-3xl border border-white/10 bg-white/10 p-8 backdrop-blur-lg transition-colors hover:border-cyan-400/50"
+                className="group rounded-3xl border border-white/10 bg-white/10 p-6 backdrop-blur-lg transition-colors hover:border-cyan-400/50"
               >
-                <h2 className="text-xl font-semibold">{service.name}</h2>
+                <h2 className="text-lg font-semibold">{service.name}</h2>
                 <p>
                   Status:{" "}
                   <span
@@ -128,13 +129,13 @@ export default function Home() {
                   </span>
                 </p>
                 <p>Response Time: {service.responseTime}</p>
-                <div className="flex justify-center mt-6">
+                <div className="flex justify-center mt-4">
                   <a
                     href={service.url}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    <button className="bg-gradient-to-r from-cyan-400 to-violet-500 text-lg text-black hover:from-cyan-500 hover:to-violet-600 px-8 py-3 rounded-xl flex items-center">
+                    <button className="bg-gradient-to-r from-cyan-400 to-violet-500 text-lg text-black hover:from-cyan-500 hover:to-violet-600 px-6 py-3 rounded-xl flex items-center">
                       View the Service <ArrowRight className="ml-2 h-5 w-5" />
                     </button>
                   </a>
